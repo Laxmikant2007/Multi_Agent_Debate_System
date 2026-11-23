@@ -1,0 +1,1085 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debate AI | Multi-Agent Reasoning</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify/dist/purify.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="app-container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="brand-icon">D</div>
+            <div>
+                <h2>DEBATE AI</h2>
+                <span>Multi-Agent Reasoning</span>
+            </div>
+        </div>
+
+        <div class="nav-label">WORKSPACE</div>
+
+        <nav class="navigation">
+            <button class="nav-item active" data-page="dashboard">
+                <span>▦</span> Dashboard
+            </button>
+
+            <button class="nav-item" data-page="playground">
+                <span>⌘</span> Experiment Playground
+            </button>
+
+            <button class="nav-item" data-page="analysis">
+                <span>◉</span> Agent Analysis
+            </button>
+
+            <button class="nav-item" data-page="compare">
+                <span>⇄</span> Compare Experiments
+            </button>
+
+            <button class="nav-item" data-page="results">
+                <span>▤</span> Performance & Results
+            </button>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="model-card">
+                <div class="model-status">
+                    <span class="status-dot"></span>
+                    <span>LOCAL MODEL</span>
+                </div>
+                <h3>Qwen 2.5 · 3B</h3>
+                <p>Powered by Ollama</p>
+                <div class="model-footer">
+                    <span class="status-text">Local inference</span>
+                    <span>● Online</span>
+                </div>
+            </div>
+
+            <div class="project-info">
+                <span>MINI PROJECT</span>
+                <p>Multi-Agent Debate System</p>
+            </div>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- TOP HEADER -->
+        <header class="topbar">
+            <div class="breadcrumb">
+                <span>Workspace</span>
+                <span class="breadcrumb-divider">/</span>
+                <strong id="page-title">Dashboard</strong>
+            </div>
+
+            <div class="topbar-right">
+                <span class="system-badge">
+                    <span class="status-dot"></span>
+                    System Ready
+                </span>
+                <div class="profile-icon">LR</div>
+            </div>
+        </header>
+
+        <!-- DASHBOARD PAGE -->
+        <section class="page active" id="dashboard">
+
+            <div class="welcome-section">
+                <div>
+                    <span class="eyebrow">AI RESEARCH WORKSPACE</span>
+                    <h1>Multi-Agent Debate System</h1>
+                    <p>Explore how different prompting and multi-agent strategies improve reasoning accuracy.</p>
+                </div>
+                <button class="primary-btn" data-navigate="playground">
+                    + New Experiment
+                </button>
+            </div>
+
+            <!-- OVERVIEW -->
+            <div class="section-heading">
+                <div>
+                    <h2>Project Overview</h2>
+                    <p>Your reasoning experiments at a glance</p>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-top">
+                        <span>Configurations</span>
+                        <span class="stat-icon purple">◈</span>
+                    </div>
+                    <h2>04</h2>
+                    <p>Experiment strategies</p>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-top">
+                        <span>Dataset Questions</span>
+                        <span class="stat-icon blue">▤</span>
+                    </div>
+                    <h2>90</h2>
+                    <p>Across 3 reasoning datasets</p>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-top">
+                        <span>Base Model</span>
+                        <span class="stat-icon green">◉</span>
+                    </div>
+                    <h2 class="model-stat">Qwen 2.5</h2>
+                    <p>3B parameters · Local inference</p>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-top">
+                        <span>Inference Engine</span>
+                        <span class="stat-icon orange">⚡</span>
+                    </div>
+                    <h2 class="model-stat">Ollama</h2>
+                    <p>Local model execution</p>
+                </div>
+            </div>
+
+            <!-- CONFIGURATIONS -->
+            <div class="section-heading">
+                <div>
+                    <h2>Experiment Configurations</h2>
+                    <p>Select a strategy to explore or run an experiment</p>
+                </div>
+                <span class="section-tag">A — D</span>
+            </div>
+
+            <div class="config-grid">
+
+                <div class="config-card config-a">
+                    <div class="config-card-top">
+                        <span class="config-letter">A</span>
+                        <span class="config-tag">BASELINE</span>
+                    </div>
+                    <h3>Direct Answer</h3>
+                    <p>Standard prompting. The model answers the question directly without additional reasoning instructions.</p>
+                    <div class="config-meta">
+                        <span>◉ 1 Model Call</span>
+                        <span>◷ Fast</span>
+                    </div>
+                    <button class="card-btn" data-config="A" data-navigate="playground">
+                        Run Experiment →
+                    </button>
+                </div>
+
+                <div class="config-card config-b">
+                    <div class="config-card-top">
+                        <span class="config-letter">B</span>
+                        <span class="config-tag">REASONING</span>
+                    </div>
+                    <h3>Reasoning Prompt</h3>
+                    <p>Encourages the model to analyze the problem step by step before producing its final answer.</p>
+                    <div class="config-meta">
+                        <span>◉ 1 Model Call</span>
+                        <span>◷ Fast</span>
+                    </div>
+                    <button class="card-btn" data-config="B" data-navigate="playground">
+                        Run Experiment →
+                    </button>
+                </div>
+
+                <div class="config-card config-c">
+                    <div class="config-card-top">
+                        <span class="config-letter">C</span>
+                        <span class="config-tag">COLLABORATIVE</span>
+                    </div>
+                    <h3>Two-Agent Debate</h3>
+                    <p>A solver generates an answer, a critic evaluates it, and the solver revises its response.</p>
+                    <div class="config-meta">
+                        <span>◉ 3 Model Calls</span>
+                        <span>◷ Multi-stage</span>
+                    </div>
+                    <button class="card-btn" data-config="C" data-navigate="playground">
+                        Run Experiment →
+                    </button>
+                </div>
+
+                <div class="config-card config-d">
+                    <div class="config-card-top">
+                        <span class="config-letter">D</span>
+                        <span class="config-tag">VERIFICATION</span>
+                    </div>
+                    <h3>Solver–Critic–Judge</h3>
+                    <p>Introduces an independent judge to evaluate the revised answer after solver and critic interaction.</p>
+                    <div class="config-meta">
+                        <span>◉ 4 Model Calls</span>
+                        <span>◷ Full Pipeline</span>
+                    </div>
+                    <button class="card-btn" data-config="D" data-navigate="playground">
+                        Run Experiment →
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- WORKFLOW -->
+            <div class="section-heading">
+                <div>
+                    <h2>System Workflow</h2>
+                    <p>How the multi-agent reasoning pipeline operates</p>
+                </div>
+            </div>
+
+            <div class="workflow-card">
+                <div class="workflow-flow">
+
+                    <div class="workflow-node">
+                        <div class="workflow-node-icon">▤</div>
+                        <h4>User Question</h4>
+                        <p>Input problem</p>
+                    </div>
+
+                    <div class="workflow-arrow">→</div>
+
+                    <div class="workflow-node">
+                        <div class="workflow-node-icon">◉</div>
+                        <h4>Solver</h4>
+                        <p>Generate answer</p>
+                    </div>
+
+                    <div class="workflow-arrow">→</div>
+
+                    <div class="workflow-node">
+                        <div class="workflow-node-icon">⌕</div>
+                        <h4>Critic</h4>
+                        <p>Find errors</p>
+                    </div>
+
+                    <div class="workflow-arrow">→</div>
+
+                    <div class="workflow-node">
+                        <div class="workflow-node-icon">↻</div>
+                        <h4>Revision</h4>
+                        <p>Improve response</p>
+                    </div>
+
+                    <div class="workflow-arrow">→</div>
+
+                    <div class="workflow-node judge-node">
+                        <div class="workflow-node-icon">✓</div>
+                        <h4>Judge</h4>
+                        <p>Final evaluation</p>
+                    </div>
+
+                </div>
+
+                <div class="workflow-note">
+                    <span>ⓘ</span>
+                    <p>Configuration A and B use a single model call. Configuration C uses Solver, Critic and Revision. Configuration D adds an independent Judge stage.</p>
+                </div>
+            </div>
+
+            <!-- DATASET -->
+            <div class="section-heading">
+                <div>
+                    <h2>Evaluation Datasets</h2>
+                    <p>Benchmark datasets used in our experiments</p>
+                </div>
+            </div>
+
+            <div class="dataset-grid">
+                <div class="dataset-card">
+                    <div class="dataset-icon">∑</div>
+                    <div>
+                        <h3>GSM8K</h3>
+                        <p>Grade-school mathematical reasoning</p>
+                    </div>
+                    <span class="dataset-count">30 Questions</span>
+                </div>
+
+                <div class="dataset-card">
+                    <div class="dataset-icon">◇</div>
+                    <div>
+                        <h3>AQuA-RAT</h3>
+                        <p>Algebra and quantitative reasoning</p>
+                    </div>
+                    <span class="dataset-count">30 Questions</span>
+                </div>
+
+                <div class="dataset-card">
+                    <div class="dataset-icon">⌘</div>
+                    <div>
+                        <h3>LogiQA</h3>
+                        <p>Logical reasoning and comprehension</p>
+                    </div>
+                    <span class="dataset-count">30 Questions</span>
+                </div>
+            </div>
+
+            <footer class="dashboard-footer">
+                Multi-Agent Debate System · Prompt Engineering Mini Project
+                <span>Local AI Research Environment</span>
+            </footer>
+
+        </section>
+
+        <!-- OTHER PAGES: PLACEHOLDERS -->
+        
+<!-- PLAYGROUND PAGE -->
+<section class="page" id="playground">
+
+    <div class="welcome-section">
+        <div>
+            <span class="eyebrow">EXPERIMENT ENVIRONMENT</span>
+            <h1>Experiment Playground</h1>
+            <p>Run reasoning experiments using different prompting and multi-agent strategies.</p>
+        </div>
+    </div>
+
+    <div class="playground-layout">
+
+        <!-- INPUT PANEL -->
+        <div class="playground-main">
+
+            <div class="play-card">
+
+                <div class="play-card-heading">
+                    <h2>Input Question</h2>
+                    <span class="section-tag">CUSTOM INPUT</span>
+                </div>
+
+                <label for="question-input" class="input-label">
+                    Enter your reasoning question
+                </label>
+
+                <textarea
+                    id="question-input"
+                    placeholder="Enter a mathematical, logical or reasoning question here..."
+                    rows="7"
+                ></textarea>
+
+                <div class="input-footer">
+                    <span>Test the model with your own questions</span>
+                    <span id="question-count">0 characters</span>
+                </div>
+
+            </div>
+
+            <div class="play-card">
+
+                <div class="play-card-heading">
+                    <h2>Select Configuration</h2>
+                    <span class="section-tag">4 STRATEGIES</span>
+                </div>
+
+                <div class="play-config-grid">
+
+                    <button class="play-config selected" data-play-config="A">
+                        <span class="play-config-letter">A</span>
+                        <span class="play-config-details">
+                            <strong>Direct Answer</strong>
+                            <small>Single direct response</small>
+                        </span>
+                    </button>
+
+                    <button class="play-config" data-play-config="B">
+                        <span class="play-config-letter">B</span>
+                        <span class="play-config-details">
+                            <strong>Reasoning Prompt</strong>
+                            <small>Reasoning-guided answer</small>
+                        </span>
+                    </button>
+
+                    <button class="play-config" data-play-config="C">
+                        <span class="play-config-letter">C</span>
+                        <span class="play-config-details">
+                            <strong>Two-Agent Debate</strong>
+                            <small>Solver → Critic → Revision</small>
+                        </span>
+                    </button>
+
+                    <button class="play-config" data-play-config="D">
+                        <span class="play-config-letter">D</span>
+                        <span class="play-config-details">
+                            <strong>Solver–Critic–Judge</strong>
+                            <small>Debate with final evaluation</small>
+                        </span>
+                    </button>
+
+                </div>
+
+                <div class="selected-config-info" id="selected-config-info">
+                    <strong>Configuration A — Direct Answer</strong>
+                    <p>One model call. The model responds directly to your question.</p>
+                </div>
+
+                <button id="run-experiment-btn" class="run-btn">
+                    <span>▶</span> Run Experiment
+                </button>
+
+            </div>
+
+            <!-- OUTPUT -->
+            <div class="play-card output-card">
+
+                <div class="play-card-heading">
+                    <h2>Experiment Output</h2>
+                    <span id="output-status" class="output-status">READY</span>
+                </div>
+
+                <div id="output-placeholder" class="output-placeholder">
+                    <div class="output-placeholder-icon">⌘</div>
+                    <h3>Ready to run your experiment</h3>
+                    <p>Enter a question, choose a configuration and run the model to see the results here.</p>
+                </div>
+
+                <div id="experiment-output" class="experiment-output hidden">
+
+                    <div class="output-metrics">
+                        <div class="output-metric">
+                            <span>Configuration</span>
+                            <strong id="result-config">—</strong>
+                        </div>
+
+                        <div class="output-metric">
+                            <span>Execution Time</span>
+                            <strong id="result-runtime">—</strong>
+                        </div>
+
+                        <div class="output-metric">
+                            <span>Model</span>
+                            <strong>Qwen 2.5 · 3B</strong>
+                        </div>
+                    </div>
+
+                    <div class="final-answer-box">
+                        <span class="eyebrow">FINAL ANSWER</span>
+                        <div id="final-answer">Waiting for output...</div>
+                    </div>
+
+                    <div id="stage-output-container">
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- SIDE PANEL -->
+        <aside class="playground-side">
+
+            <div class="play-card model-info-card">
+                <span class="eyebrow">ACTIVE MODEL</span>
+                <h2>Qwen 2.5 · 3B</h2>
+                <p>Local inference through Ollama</p>
+
+                <div class="model-info-divider"></div>
+
+                <div class="model-info-row">
+                    <span>Runtime</span>
+                    <strong>Local</strong>
+                </div>
+
+                <div class="model-info-row">
+                    <span>Model Engine</span>
+                    <strong>Ollama</strong>
+                </div>
+
+                <div class="model-info-row">
+                    <span>Model Calls</span>
+                    <strong id="expected-calls">1</strong>
+                </div>
+
+            </div>
+
+            <div class="play-card config-guide-card">
+
+                <h3>Configuration Guide</h3>
+
+                <div class="guide-item">
+                    <span class="guide-letter guide-a">A</span>
+                    <div>
+                        <strong>Direct Answer</strong>
+                        <p>Simple baseline without reasoning instructions.</p>
+                    </div>
+                </div>
+
+                <div class="guide-item">
+                    <span class="guide-letter guide-b">B</span>
+                    <div>
+                        <strong>Reasoning Prompt</strong>
+                        <p>Encourages deliberate problem-solving.</p>
+                    </div>
+                </div>
+
+                <div class="guide-item">
+                    <span class="guide-letter guide-c">C</span>
+                    <div>
+                <strong>Two-Agent Debate</strong>
+                        <p>Solver, critic and revision process.</p>
+                    </div>
+                </div>
+
+                <div class="guide-item">
+                    <span class="guide-letter guide-d">D</span>
+                    <div>
+                        <strong>Solver–Critic–Judge</strong>
+                        <p>Adds independent answer evaluation.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </aside>
+
+    </div>
+
+</section>
+
+
+        
+<section class="page" id="analysis">
+
+    <div class="welcome-section">
+        <div>
+            <span class="eyebrow">REASONING INSPECTOR</span>
+            <h1>Agent Analysis</h1>
+            <p>Explore the reasoning strategies, agent roles and evaluation pipeline.</p>
+        </div>
+    </div>
+
+    <!-- CONFIGURATION ANALYSIS -->
+    <div class="section-heading">
+        <div>
+            <h2>Reasoning Strategies</h2>
+            <p>Four experimental configurations used in our evaluation</p>
+        </div>
+    </div>
+
+    <div class="agent-grid">
+
+        <!-- A -->
+        <div class="agent-card">
+            <div class="agent-card-header">
+                <span class="agent-tag config-a">CONFIGURATION A</span>
+                <h2>Direct Answer</h2>
+                <span class="agent-role">Baseline</span>
+            </div>
+
+            <div class="agent-card-body">
+                <p>The model receives the question and generates a response without explicit reasoning instructions.</p>
+                <ul>
+                    <li>Direct question answering</li>
+                    <li>Single model call</li>
+                    <li>No critic or verification</li>
+                </ul>
+            </div>
+
+            <div class="agent-card-footer">
+                <span>Experimental role</span>
+                <strong>Baseline comparison</strong>
+            </div>
+        </div>
+
+        <!-- B -->
+        <div class="agent-card">
+            <div class="agent-card-header">
+                <span class="agent-tag config-b">CONFIGURATION B</span>
+                <h2>Reasoning Prompt</h2>
+                <span class="agent-role">Structured Reasoning</span>
+            </div>
+
+            <div class="agent-card-body">
+                <p>The model is instructed to analyze the problem systematically and work through the necessary steps before giving its answer.</p>
+                <ul>
+                    <li>Structured reasoning instructions</li>
+                    <li>Single model call</li>
+                    <li>No additional agent</li>
+                </ul>
+            </div>
+
+            <div class="agent-card-footer">
+                <span>Experimental role</span>
+                <strong>Reasoning improvement</strong>
+            </div>
+        </div>
+
+        <!-- C -->
+        <div class="agent-card">
+            <div class="agent-card-header">
+                <span class="agent-tag config-c">CONFIGURATION C</span>
+                <h2>Two-Agent Debate</h2>
+                <span class="agent-role">Solver & Critic</span>
+            </div>
+
+            <div class="agent-card-body">
+                <p>The proposed solution is critically reviewed, and feedback is used to revise the answer.</p>
+                <ul>
+                    <li>Solver generates an answer</li>
+                    <li>Critic identifies potential errors</li>
+                    <li>Solver revises the answer</li>
+                </ul>
+            </div>
+
+            <div class="agent-card-footer">
+                <span>Experimental role</span>
+                <strong>Critique and revision</strong>
+            </div>
+        </div>
+
+        <!-- D -->
+        <div class="agent-card">
+            <div class="agent-card-header">
+                <span class="agent-tag config-d">CONFIGURATION D</span>
+                <h2>Solver–Critic–Judge</h2>
+                <span class="agent-role">Multi-Agent Verification</span>
+            </div>
+
+            <div class="agent-card-body">
+                <p>Extends the debate process with an additional judge stage to evaluate the reasoning and revised response.</p>
+                <ul>
+                    <li>Solver proposes a solution</li>
+                    <li>Critic reviews and challenges</li>
+                    <li>Judge evaluates the final result</li>
+                </ul>
+            </div>
+
+            <div class="agent-card-footer">
+                <span>Experimental role</span>
+                <strong>Additional evaluation</strong>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- PIPELINE -->
+    <div class="section-heading">
+        <div>
+            <h2>Agent Workflow</h2>
+            <p>How the multi-agent configurations process a question</p>
+        </div>
+    </div>
+
+    <div class="workflow-card">
+        <div class="workflow-flow">
+
+            <div class="workflow-node">
+                <div class="workflow-node-icon">▤</div>
+                <h4>Question</h4>
+                <p>User input</p>
+            </div>
+
+            <div class="workflow-arrow">→</div>
+
+            <div class="workflow-node">
+                <div class="workflow-node-icon">◉</div>
+                <h4>Solver</h4>
+                <p>Initial answer</p>
+            </div>
+
+            <div class="workflow-arrow">→</div>
+
+            <div class="workflow-node">
+                <div class="workflow-node-icon">⌕</div>
+                <h4>Critic</h4>
+                <p>Review</p>
+            </div>
+
+            <div class="workflow-arrow">→</div>
+
+            <div class="workflow-node">
+                <div class="workflow-node-icon">↻</div>
+                <h4>Revision</h4>
+                <p>Refinement</p>
+            </div>
+
+            <div class="workflow-arrow">→</div>
+
+            <div class="workflow-node judge-node">
+                <div class="workflow-node-icon">✓</div>
+                <h4>Judge</h4>
+                <p>Evaluation</p>
+            </div>
+
+        </div>
+
+        <div class="workflow-note">
+            <span>ⓘ</span>
+            <p>Configuration A and B use one model call. Configuration C uses three calls, while Configuration D uses four calls to incorporate an additional evaluation stage.</p>
+        </div>
+    </div>
+
+    <!-- FINDINGS -->
+    <div class="section-heading">
+        <div>
+            <h2>Experimental Findings</h2>
+            <p>Insights obtained from the final evaluation dataset</p>
+        </div>
+    </div>
+
+    <div class="agent-insight-card">
+        <span class="eyebrow">BEST PERFORMING CONFIGURATION</span>
+        <h2>Structured Reasoning Outperformed Multi-Agent Debate</h2>
+        <p>
+            Configuration B achieved 92.86% final accuracy (26 out of 28 questions),
+            while Configurations C and D each achieved 89.29% (25 out of 28).
+            In this experiment, adding agent interactions did not improve accuracy
+            beyond the reasoning-prompt baseline.
+        </p>
+    </div>
+
+</section>
+
+
+        
+<section class="page" id="compare">
+
+    <!-- HEADER -->
+    <div class="welcome-section">
+        <div>
+            <span class="eyebrow">SIDE-BY-SIDE EVALUATION</span>
+            <h1>Compare Experiments</h1>
+            <p>Analyze the accuracy, runtime, model usage and outputs of all four configurations.</p>
+        </div>
+        <button class="primary-btn" id="refresh-compare-btn">
+            ↻ Refresh Comparison
+        </button>
+    </div>
+
+    <!-- OVERALL COMPARISON -->
+    <div class="section-heading">
+        <div>
+            <h2>Strategy Comparison</h2>
+            <p>Final performance on the common evaluation dataset</p>
+        </div>
+    </div>
+
+    <div class="compare-grid">
+
+        <div class="compare-card compare-a">
+            <span class="compare-label">CONFIGURATION A</span>
+            <h2>Direct Answer</h2>
+            <div class="compare-accuracy" id="compare-accuracy-a">--</div>
+            <p>Final accuracy</p>
+            <div class="compare-details">
+                <div><span>Correct Answers</span><strong id="compare-correct-a">--</strong></div>
+                <div><span>Avg. Runtime</span><strong id="compare-time-a">--</strong></div>
+                <div><span>Avg. Calls</span><strong id="compare-calls-a">--</strong></div>
+            </div>
+        </div>
+
+        <div class="compare-card compare-b">
+            <span class="compare-label">CONFIGURATION B</span>
+            <h2>Reasoning Prompt</h2>
+            <div class="compare-accuracy" id="compare-accuracy-b">--</div>
+            <p>Final accuracy</p>
+            <div class="compare-details">
+                <div><span>Correct Answers</span><strong id="compare-correct-b">--</strong></div>
+                <div><span>Avg. Runtime</span><strong id="compare-time-b">--</strong></div>
+                <div><span>Avg. Calls</span><strong id="compare-calls-b">--</strong></div>
+            </div>
+        </div>
+
+        <div class="compare-card compare-c">
+            <span class="compare-label">CONFIGURATION C</span>
+            <h2>Two-Agent Debate</h2>
+            <div class="compare-accuracy" id="compare-accuracy-c">--</div>
+            <p>Final accuracy</p>
+            <div class="compare-details">
+                <div><span>Correct Answers</span><strong id="compare-correct-c">--</strong></div>
+                <div><span>Avg. Runtime</span><strong id="compare-time-c">--</strong></div>
+                <div><span>Avg. Calls</span><strong id="compare-calls-c">--</strong></div>
+            </div>
+        </div>
+
+        <div class="compare-card compare-d">
+            <span class="compare-label">CONFIGURATION D</span>
+            <h2>Solver–Critic–Judge</h2>
+            <div class="compare-accuracy" id="compare-accuracy-d">--</div>
+            <p>Final accuracy</p>
+            <div class="compare-details">
+                <div><span>Correct Answers</span><strong id="compare-correct-d">--</strong></div>
+                <div><span>Avg. Runtime</span><strong id="compare-time-d">--</strong></div>
+                <div><span>Avg. Calls</span><strong id="compare-calls-d">--</strong></div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- CHART -->
+    <div class="section-heading">
+        <div>
+            <h2>Comparative Performance</h2>
+            <p>Accuracy and computational cost across strategies</p>
+        </div>
+    </div>
+
+    <div class="compare-chart-grid">
+
+        <div class="play-card compare-chart-card">
+            <h3>Accuracy Comparison</h3>
+            <p>Final accuracy percentage</p>
+            <div class="chart-container">
+                <canvas id="compare-accuracy-chart"></canvas>
+            </div>
+        </div>
+
+        <div class="play-card compare-chart-card">
+            <h3>Execution Time Comparison</h3>
+            <p>Average seconds per question</p>
+            <div class="chart-container">
+                <canvas id="compare-runtime-chart"></canvas>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- QUESTION COMPARISON -->
+    <div class="section-heading">
+        <div>
+            <h2>Question-by-Question Comparison</h2>
+            <p>Inspect the predictions made by each configuration for the same question</p>
+        </div>
+    </div>
+
+    <div class="play-card compare-question-card">
+
+        <div class="compare-question-toolbar">
+            <label for="compare-question-select">Select Question</label>
+            <select id="compare-question-select">
+                <option value="">Loading questions...</option>
+            </select>
+        </div>
+
+        <div id="compare-question-details" class="compare-question-details">
+            Select a question to compare all four configurations.
+        </div>
+
+        <div class="compare-question-table-wrapper">
+            <table class="results-table compare-question-table">
+                <thead>
+                    <tr>
+                        <th>Configuration</th>
+                        <th>Initial Answer</th>
+                        <th>Final Answer</th>
+                        <th>Reference</th>
+                        <th>Initial Result</th>
+                        <th>Final Result</th>
+                        <th>Calls</th>
+                        <th>Time (s)</th>
+                    </tr>
+                </thead>
+                <tbody id="compare-question-table-body">
+                    <tr>
+                        <td colspan="8">Select a question above.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</section>
+
+
+        
+<section class="page" id="results">
+
+    <!-- RESULTS HEADER -->
+    <div class="welcome-section">
+        <div>
+            <span class="eyebrow">BENCHMARK ANALYTICS</span>
+            <h1>Performance & Results</h1>
+            <p>Final evaluation of four prompting strategies across 28 common questions.</p>
+        </div>
+
+        <button class="primary-btn" id="refresh-results-btn">
+            ↻ Refresh Results
+        </button>
+    </div>
+
+    <!-- STATUS -->
+    <div id="results-loading" class="results-message">
+        Loading experimental results...
+    </div>
+
+    <div id="results-error" class="results-message hidden">
+        Failed to load results.
+    </div>
+
+    <!-- SUMMARY CARDS -->
+    <div class="stats-grid results-stats-grid">
+
+        <div class="stat-card">
+            <div class="stat-top">
+                <span>Configuration A</span>
+                <span class="stat-icon blue">A</span>
+            </div>
+            <h2 id="accuracy-a">--</h2>
+            <p>Direct Answer · Baseline</p>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-top">
+                <span>Configuration B</span>
+                <span class="stat-icon purple">B</span>
+            </div>
+            <h2 id="accuracy-b">--</h2>
+            <p>Reasoning Prompt</p>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-top">
+                <span>Configuration C</span>
+                <span class="stat-icon green">C</span>
+            </div>
+            <h2 id="accuracy-c">--</h2>
+            <p>Two-Agent Debate</p>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-top">
+                <span>Configuration D</span>
+                <span class="stat-icon orange">D</span>
+            </div>
+            <h2 id="accuracy-d">--</h2>
+            <p>Solver–Critic–Judge</p>
+        </div>
+
+    </div>
+
+    <!-- BEST CONFIGURATION -->
+    <div class="play-card results-highlight-card">
+        <div class="section-heading">
+            <div>
+                <h2>Best Performing Strategy</h2>
+                <p>Highest final accuracy among the evaluated configurations</p>
+            </div>
+        </div>
+
+        <div class="results-highlight-content">
+            <div>
+                <span class="eyebrow">BEST CONFIGURATION</span>
+                <h1 id="best-config-name">--</h1>
+                <p id="best-config-description">
+                    Loading performance summary...
+                </p>
+            </div>
+
+            <div class="results-highlight-score">
+                <span>Final Accuracy</span>
+                <h1 id="best-config-accuracy">--</h1>
+            </div>
+        </div>
+    </div>
+
+    <!-- CHARTS -->
+    <div class="section-heading">
+        <div>
+            <h2>Performance Comparison</h2>
+            <p>Compare accuracy, runtime and model usage</p>
+        </div>
+    </div>
+
+    <div class="results-chart-grid">
+
+        <div class="play-card results-chart-card">
+            <h3>Accuracy Comparison</h3>
+            <p>Initial accuracy vs final accuracy</p>
+            <div class="chart-container">
+                <canvas id="accuracy-chart"></canvas>
+            </div>
+        </div>
+
+        <div class="play-card results-chart-card">
+            <h3>Average Execution Time</h3>
+            <p>Average seconds per question</p>
+            <div class="chart-container">
+                <canvas id="runtime-chart"></canvas>
+            </div>
+        </div>
+
+        <div class="play-card results-chart-card">
+            <h3>Average Model Calls</h3>
+            <p>LLM calls per question</p>
+            <div class="chart-container">
+                <canvas id="calls-chart"></canvas>
+            </div>
+        </div>
+
+        <div class="play-card results-chart-card">
+            <h3>Correct Answers</h3>
+            <p>Correct and incorrect final predictions</p>
+            <div class="chart-container">
+                <canvas id="correctness-chart"></canvas>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- QUESTION RESULTS -->
+    <div class="section-heading">
+        <div>
+            <h2>Question-Level Results</h2>
+            <p>Detailed results for the common evaluation questions</p>
+        </div>
+    </div>
+
+    <div class="play-card results-table-card">
+
+        <div class="results-table-toolbar">
+            <div>
+                <h3>Final Dataset Comparison</h3>
+                <p id="results-table-count">112 experiment records</p>
+            </div>
+
+            <select id="results-config-filter">
+                <option value="ALL">All Configurations</option>
+                <option value="A">Configuration A</option>
+                <option value="B">Configuration B</option>
+                <option value="C">Configuration C</option>
+                <option value="D">Configuration D</option>
+            </select>
+        </div>
+
+        <div class="results-table-wrapper">
+            <table class="results-table">
+                <thead>
+                    <tr>
+                        <th>Question ID</th>
+                        <th>Config</th>
+                        <th>Initial Answer</th>
+                        <th>Final Answer</th>
+                        <th>Reference</th>
+                        <th>Initial</th>
+                        <th>Final</th>
+                        <th>Calls</th>
+                        <th>Time (s)</th>
+                    </tr>
+                </thead>
+
+                <tbody id="results-table-body">
+                    <tr>
+                        <td colspan="9">Loading data...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</section>
+
+
+    </main>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
