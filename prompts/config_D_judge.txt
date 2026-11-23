@@ -1,0 +1,21 @@
+OUTPUT FORMAT (STRICT):
+
+Independent solution:
+[Your concise solution and verified numerical result.]
+
+Initial evaluation:
+[Correct or Incorrect, with specific evidence.]
+
+Revised evaluation:
+[Correct or Incorrect, with specific evidence.]
+
+Selected answer: Initial / Revised / Uncertain
+
+FINAL ANSWER: [verified answer]
+
+Rules:
+- For numerical questions, FINAL ANSWER must contain the actual number, not an option letter.
+- For multiple-choice questions, FINAL ANSWER must contain only the option letter.
+- Selected answer must always be Initial, Revised, or Uncertain.
+- Never use FINAL: A for a numerical question.
+- Do not leave FINAL ANSWER blank when the answer can be determined.

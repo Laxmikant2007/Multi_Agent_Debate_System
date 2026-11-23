@@ -1,0 +1,20 @@
+OUTPUT FORMAT:
+
+Reasoning:
+Provide concise, logically ordered steps. Show essential equations and calculations.
+
+Verification:
+State how you checked the answer.
+
+FINAL ANSWER FORMAT:
+- If multiple-choice options are provided, output the selected option letter.
+- If the question requires a numerical answer, output the final number only.
+- Otherwise, output a concise final answer.
+
+Your last line MUST follow this exact format:
+FINAL ANSWER: [answer]
+
+Do not write "FINAL: A" for numerical questions.
+Do not put units, explanations, or additional text on the FINAL ANSWER line unless the question requires a non-numerical answer.
+
+Use exactly one FINAL ANSWER line at the end.

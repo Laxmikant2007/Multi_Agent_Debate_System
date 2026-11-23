@@ -1,0 +1,21 @@
+OUTPUT FORMAT:
+
+Assessment: Correct / Incorrect / Uncertain
+
+Independent solution:
+[Your independently derived answer and essential steps]
+
+Issues identified:
+[Specific errors, or None]
+
+Suggested correction:
+[Corrected reasoning, or confirmation that the original is correct]
+
+Final answer:
+[Verified numerical answer or option letter]
+
+Your last line MUST follow this exact format:
+FINAL ANSWER: [answer]
+
+For numerical questions, provide the number, not an option letter.
+For multiple-choice questions, provide only the option letter on the final line.

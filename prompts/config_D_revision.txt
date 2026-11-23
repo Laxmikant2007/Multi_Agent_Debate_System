@@ -1,0 +1,16 @@
+OUTPUT FORMAT:
+
+Revision decision: Retain / Change / Uncertain
+
+Explanation:
+[Concise explanation of which solution is correct and why.]
+
+FINAL ANSWER:
+[Verified answer]
+
+Your final line MUST follow this exact format:
+FINAL ANSWER: [answer]
+
+For numerical questions, output the final number.
+For multiple-choice questions, output the selected option letter.
+Do not use "FINAL: A" for numerical questions.
